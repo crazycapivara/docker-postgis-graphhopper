@@ -13,5 +13,6 @@ RUN apt-get update \
     python3-requests \
     postgresql-plpython3-$PG_MAJOR
 
+COPY ./python /python-libs
 COPY ./initdb.d /docker-entrypoint-initdb.d/
 
