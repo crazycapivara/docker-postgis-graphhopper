@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+  postgis:
+    build: .
+    ports:
+      - "8432:5432"
+    networks:
+      - pg-graphhopper
+    environment:
+      GH_API_URL: "http://graphhopper:8989"
+
+  graphhopper:
+    image: graphhopper/graphhopper
+    ports:
+      - "9090:8989"
+    networks:
+      - pg-graphhopper
+
+networks:
+  pg-graphhopper:
+    driver: bridge
+
