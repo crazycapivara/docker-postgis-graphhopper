@@ -11,7 +11,8 @@ services:
       GH_API_URL: "http://graphhopper:8989"
 
   graphhopper:
-    image: graphhopper/graphhopper
+    # image: graphhopper/graphhopper
+    image: crazycapivara/graphhopper:ext_pointlist
     ports:
       - "9090:8989"
     networks:
