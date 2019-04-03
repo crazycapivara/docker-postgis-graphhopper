@@ -4,6 +4,17 @@ class Graphhopper(object):
     def __init__(self, base_url):
         self.base_url = base_url
 
+    def route(self, from_lat, from_lng, to_lat, to_lng):
+        params = {
+            "point": [
+                "%s,%s" % (from_lat, from_lng),
+                "%s,%s" % (to_lat, to_lng)
+            ],
+            "instructions": False,
+            "points_encoded": False
+        }
+        return self.response("route", params)
+
     def isochrone(self, lat, lng, time_limit, buckets):
         params = {
             "point": "%s,%s" % (lat, lng),
@@ -11,9 +22,6 @@ class Graphhopper(object):
             "time_limit": time_limit,
             "buckets": buckets
         }
-        # api_url = requests.compat.urljoin(self.base_url, "isochrone")
-        # response = requests.get(api_url, params = params)
-        # return response
         return self.response("isochrone", params)
 
     def pointlist(self, lat, lng, time_limit):
