@@ -3,12 +3,12 @@ CREATE OR REPLACE FUNCTION graphhopper.pointlist(
   lng double precision,
   time_limit integer DEFAULT 200)
   RETURNS TABLE(
-    lat double precision,
     lng double precision,
+    lat double precision,
     "time" double precision,
     distance double precision,
-    prev_lat double precision,
     prev_lng double precision,
+    prev_lat double precision,
     node_id integer,
     prev_node_id integer) 
     LANGUAGE 'plpython3u'
