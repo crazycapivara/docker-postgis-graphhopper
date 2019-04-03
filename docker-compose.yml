@@ -2,6 +2,7 @@ version: "2"
 
 services:
   postgis:
+    container_name: pg-gh-postgis
     build: .
     ports:
       - "8432:5432"
@@ -11,6 +12,7 @@ services:
       GH_API_URL: "http://graphhopper:8989"
 
   graphhopper:
+    container_name: pg-gh-graphhopper
     # image: graphhopper/graphhopper
     image: crazycapivara/graphhopper:ext_pointlist
     ports:
