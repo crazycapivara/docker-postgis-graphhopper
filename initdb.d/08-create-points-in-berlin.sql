@@ -1,10 +1,13 @@
-CREATE TABLE graphhopper.points_berlin(id SERIAL, geom geometry);
+CREATE TABLE graphhopper.points_berlin (
+  id SERIAL,
+  geom geometry
+);
 
 DO
 $$
 DECLARE
   x double precision[];
-  y double precision[] := ARRAY[
+  y double precision[] := array[
     [13.394394, 52.514549],
     [13.399887, 52.536691],
     [13.42804, 52.494487],
@@ -20,5 +23,5 @@ BEGIN
     VALUES (ST_SetSRID(ST_MakePoint(x[1], x[2]), 4326));
   END LOOP;
 END;
-$$
+$$;
 
