@@ -20,6 +20,6 @@ BEGIN
     pl."time",
     pl.distance
   FROM graphhopper.pointlist(lat, lng, time_limit) AS pl;
-END;
-$$ LANGUAGE plpgsql
+END
+$$ LANGUAGE plpgsql;
 

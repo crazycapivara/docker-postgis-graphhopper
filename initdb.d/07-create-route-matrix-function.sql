@@ -21,6 +21,6 @@ AS $$
       SELECT target.id, target.id2, res.route, res.time, res.distance
       FROM graphhopper.route(target.lat, target.lng, target.lat2, target.lng2) AS res;
     END LOOP;
-  END;
+  END
 $$ language plpgsql;
 
