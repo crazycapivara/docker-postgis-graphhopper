@@ -15,4 +15,6 @@ docker exec -it pg-gh-postgis \
 
 docker exec -it pg-gh-postgis \
   psql -U postgres -c 'SELECT time, distance FROM graphhopper.route(52.553811, 13.371048, 52.526248, 13.368301)'
+
+docker exec -it pg-gh-postgis psql -U postgres -f /examples/route-matrix.sql
 ```

@@ -4,7 +4,7 @@ import graphhopper as gh
 
 class GraphopperTests(unittest.TestCase):
     def setUp(self):
-        base_url = os.environ.get("GH_API_URL") or "graphhopper:8989"
+        base_url = os.environ.get("GH_API_URL") or "http://graphhopper:8989"
         self.api_client = gh.Graphhopper(base_url)
 
     def test_route(self):

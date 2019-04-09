@@ -15,4 +15,5 @@ RUN apt-get update \
 
 COPY ./python /python-libs
 COPY ./initdb.d /docker-entrypoint-initdb.d/
+COPY ./examples /examples
 
