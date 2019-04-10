@@ -10,5 +10,5 @@ script:
   - docker exec -it pg-gh-postgis psql -U postgres -c "SELECT start_id, end_id, time FROM graphhopper.route_matrix('graphhopper.points_berlin') LIMIT 14"
   - docker exec -it pg-gh-postgis psql -U postgres -f /examples/route-matrix.sql
   - docker exec -it pg-gh-postgis psql -U postgres -c 'SELECT h3_geo_to_h3(geom, 7) AS h3_index FROM graphhopper.points_berlin'
-  - docker exec -it pg-gh-postgis psql -U postgres -c 'SELECT h3_index, time, distance FROM graphhopper.h3_hexagons(52.514549, 13.394394, 9) LIMIT 5'
+  - docker exec -it pg-gh-postgis psql -U postgres -c 'SELECT h3_index, time, distance FROM graphhopper.h3_hexagons(52.514549, 13.394394, 100, 9) LIMIT 5'
 
