@@ -20,4 +20,8 @@ docker exec -it pg-gh-postgis psql -U postgres -f /examples/route-matrix.sql
 
 docker exec -it pg-gh-postgis \
   psql -U postgres -c 'SELECT DISTINCT h3_geo_to_h3(ST_MakePoint(lng, lat), 7) FROM graphhopper.pointlist(52.514549, 13.394394)'
+
+docker exec -it pg-gh-postgis \
+  psql -U postgres -c 'SELECT h3_index, time, distance FROM graphhopper.h3_hexagons(52.514549, 13.394394, 9) LIMIT 5'
 ```
+
