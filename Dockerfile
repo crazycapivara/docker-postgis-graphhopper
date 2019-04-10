@@ -14,12 +14,6 @@ RUN apt-get update \
     python3-requests \
     postgresql-plpython3-$PG_MAJOR
 
-COPY ./python /python-libs
-
-COPY ./initdb.d /docker-entrypoint-initdb.d/
-
-COPY ./examples /examples
-
 # ### H3
 FROM base AS h3
 
@@ -30,4 +24,10 @@ RUN apt-get install -y --no-install-recommends $BUILD_TOOLS
 RUN pgxn install h3
 
 RUN apt-get purge -y --auto-remove $BUILD_TOOLS
+
+COPY ./python /python-libs
+
+COPY ./initdb.d /docker-entrypoint-initdb.d/
+
+COPY ./examples /examples
 
